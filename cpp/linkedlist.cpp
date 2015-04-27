@@ -33,6 +33,8 @@ public:
 	int GetByIndex(int index);
 	bool Exists(int value);
 	int NumOccurrences(int value);
+	void DeleteByValue(int value);
+	void DeleteByIndex(int index);
 };
 
 void List::Append(int data){
@@ -117,6 +119,73 @@ int List::NumOccurrences(int value){
 	return total;	
 }
 
+void List::DeleteByValue(int value){
+	if(head==NULL){
+		return;
+	}else{
+		if(head->data==value){
+			Node* to_delete;
+			to_delete = head;
+			head = to_delete->next;
+			delete to_delete;
+		}else{
+			Node* cur = head;
+			Node* prev = cur;
+			cur = cur->next;
+			while(cur != NULL && cur->next != NULL){
+				if(cur->data==value){
+					Node* to_delete;
+					to_delete = cur;
+					cur = to_delete->next;
+					prev->next = cur;
+					delete to_delete;
+					break;
+				}else if(cur != NULL && cur->next == NULL){
+					if(cur->data==value){
+						Node* to_delete;
+						to_delete = cur;
+						prev->next = NULL;
+						delete to_delete;
+						break;
+					}
+				}
+				cur = cur->next;
+				
+			} 
+		}
+	}
+}
+
+void List::DeleteByIndex(int index){
+	if(head==NULL){
+		return;
+	}else if(index >= size){
+			return;
+	}else{
+		if(index==0){
+			Node* to_delete;
+			to_delete = head;
+			head = to_delete->next;
+			delete to_delete;
+		}else{
+			int counter = 1;
+			Node* cur = head;
+			Node* prev = cur;
+			cur=cur->next;
+			while(counter < index){
+				cur = cur->next;
+				prev = prev->next;
+				counter++;
+			}
+			Node* to_delete = cur;
+			cur = to_delete->next;
+			prev->next = cur;
+			delete to_delete;
+		}
+	}
+}
+
+
 int main(){
 	/*
 	Methods to check
@@ -134,5 +203,9 @@ int main(){
 	cout << list.NumOccurrences(7)<<endl;//should be 1
 	cout << list.GetByIndex(1)<<endl;//should be 5
 	cout << list.Exists(7)<<endl;//should be true
+	list.DeleteByValue(7);
+	cout << list.Exists(7)<<endl;
+	list.DeleteByIndex(0);
+	cout << list.Exists(5);
 	return 0;
 }
