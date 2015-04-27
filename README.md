@@ -86,27 +86,49 @@ In part 6 of the book, we turn our area of skills towards analyzing real problem
 Some questions that will be asked:
 
 1) Who will win the 2016 presidential election?
+
 2) How many people are enslaved around the world?
+
 	2a) How much does your iPhone really cost?
+
 	2b) How much does your food really cost?
+
 	2c) How much does your washing machine really cost?
+
 3) When will global warming end humanity and what could we do to stop it?
+
 4) When will China overtake america as the world's largest economy?
+
 5) When will the Euro-zone collapse?
+
 6) When will world war 3 start?
+
 7) What will the next major political parties leanings be? When will it arise?  And where?
+
 8) What will replace democracy as the ideology of governance?
+
 9) Which celebrities will die in the next 10 years?
+
 10) How long will you live? How long will your children live?  How long will your grand children live?
+
 11) What will the next major evolution on earth look like?
+
 12) How can we construct a vehicle capable of leaving our solar system?
+
 13) How will we find life on other planets?
+
 14) What does love mean?  And how do we find examples of it between two people?
+
 15) What does it mean to hate someone?
+
 16) How could you predict the 10 next best seller, by genre, theme, and approximate title?
+
 17) How could you write a symphony?
+
 18) How could you translate a song into a different genre?
+
 19) How can you predict cancer? Heart disease? lung disease? kidney failure?
+
 20) What are the qualities of your ideal mate?
 
 Using the above analytic tools we will be able to answer all of these questions, with more precision, than you may have believed possible.
