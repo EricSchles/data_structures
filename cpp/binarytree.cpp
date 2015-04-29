@@ -33,9 +33,47 @@ public:
 			return exists(key,root);
 		}
 	}
-	/*void delete(int data){
 
-	}*/
+	void remove(int data){
+		
+			if(root != NULL){
+			//if root node has the data, a whooping 30 lines 
+			if(root->data == data){
+				if(root->left != NULL){
+					Node* to_delete = root;
+					Node* new_left;
+					if(root->left->left != NULL){
+						new_left = root->left->left;
+					}else if(root->left->right != NULL){
+						new_left = root->left->right;
+					}else{
+						new_left = NULL;
+					}
+					root = to_delete->left;
+					delete to_delete;
+					root->left = new_left;
+				}else if(root->right != NULL){
+					Node* to_delete = root;
+					Node* new_right;
+					if(root->right->left != NULL){
+						new_right = root->right->left;
+					}else if(root->right->right != NULL){
+						new_right = root->right->right;
+					}else{
+						new_right = NULL;
+					}
+					root = to_delete->right;
+					delete to_delete;
+					root->right = new_right;
+				}else{
+					root = NULL;
+				}
+			}else{
+				remove(data,root);
+			}
+		}
+	}
+
 private:
 	void insert(int data, Node* leaf){
 		if(data < leaf->data){
@@ -68,9 +106,53 @@ private:
 		}
 		
 	}
-	/*void delete(int data, Node* leaf){
-
-	}*/
+	
+	void remove(int data, Node* leaf){
+		
+		if(leaf != NULL){
+			//If the data was found
+			if(leaf->data==data){
+				if(leaf->left != NULL){
+					Node* to_delete = leaf;
+					Node* new_left;
+					if(leaf->left->left != NULL){
+						new_left = leaf->left->left;
+					}else if(leaf->left->right != NULL){
+						new_left = leaf->left->right;
+					}else{
+						new_left = NULL;
+					}
+					leaf = to_delete->left;
+					delete to_delete;
+					leaf->left = new_left;
+				}else if(leaf->right != NULL){
+					Node* to_delete = leaf;
+					Node* new_right;
+					if(leaf->right->left != NULL){
+						new_right = leaf->right->left;
+					}else if(leaf->right->right != NULL){
+						new_right = leaf->right->right;
+					}else{
+						new_right = NULL;
+					}
+					leaf = to_delete->right;
+					delete to_delete;
+					leaf->right = new_right;
+				}else{
+					Node* to_delete = leaf;
+					delete to_delete;
+				}
+			
+			}else{
+				if(leaf->left != NULL){
+					remove(data,leaf->left);	
+				}
+				if(leaf->right != NULL){
+					remove(data,leaf->right);
+				}
+			}
+		}
+	}
 };
 
 	
@@ -80,5 +162,7 @@ int main(){
 	btree.insert(7);
 	btree.insert(19);
 	cout <<btree.exists(199)<<endl;
+	btree.remove(19);
+	cout << btree.exists(19)<<endl;
 	return 0;
-	}
+}
